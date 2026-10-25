@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="小さく作って、仕組みを学ぶ。Webアプリ開発教材のマイタスク。">
+  <title>マイタスク | 小さなアプリ開発教室</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="マイタスク ホーム"><span class="brand-mark" aria-hidden="true">✓</span> 小さなアプリ開発教室</a>
+      <span class="mode" id="mode">接続を確認中</span>
+    </header>
+    <main>
+      <section class="intro">
+        <p class="eyebrow">つくる、試す、わかる。</p>
+        <h1>マイタスク</h1>
+        <p class="lead">今日の小さな一歩を、ひとつずつ。</p>
+      </section>
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+      <section id="login-panel" class="panel login-panel" hidden aria-labelledby="login-heading">
+        <h2 id="login-heading">自分のタスクにログイン</h2>
+        <p>教材で作成した練習用ユーザーを使います。</p>
+        <form id="login-form">
+          <label for="email">メールアドレス</label>
+          <input id="email" type="email" autocomplete="username" required maxlength="254">
+          <label for="password">パスワード</label>
+          <input id="password" type="password" autocomplete="current-password" required maxlength="256">
+          <button class="primary" type="submit">ログイン</button>
+        </form>
+        <p class="hint">再読み込み後や有効期限が切れたときは、再ログインします。</p>
+      </section>
+      <section id="task-panel" class="panel" hidden aria-label="タスクの管理">
+        <div class="panel-heading"><h2>次にやること</h2><button id="logout" class="text-button" hidden>ログアウト</button></div>
+        <form id="task-form" class="add-form">
+          <label class="sr-only" for="title">新しいタスク</label>
+          <input id="title" name="title" placeholder="例：Webアプリの仕組みを説明する" required maxlength="80" autocomplete="off" aria-describedby="title-hint">
+          <button class="primary" type="submit">＋ 追加</button>
+        </form>
+        <p id="title-hint" class="hint">1〜80文字。学習用の架空の内容を入力してください。</p>
+        <div class="list-toolbar">
+          <div class="filters" role="group" aria-label="タスクの表示を切り替え">
+            <button data-filter="all" aria-pressed="true">すべて</button>
+            <button data-filter="active" aria-pressed="false">未完了</button>
+            <button data-filter="done" aria-pressed="false">完了</button>
+          </div>
+          <p id="count" class="count"></p>
+        </div>
+        <!-- 第4回の検索欄は、この位置に追加します。 -->
+        <ul id="task-list" class="task-list"></ul>
+        <div id="empty" class="empty" hidden><span aria-hidden="true">☑</span><h3>小さな一歩を追加しましょう</h3><p>まずは「教材を開く」から始めてみましょう。</p></div>
+        <button id="reload" class="text-button reload">一覧を再読み込み</button>
+      </section>
+      <aside class="learning-note">
+        <span class="note-number" aria-hidden="true">01 / 05</span>
+        <div><h2>ボタンの向こう側を見てみよう</h2><p>画面で入力し、サーバーが確認し、保存先に記録する。<br>この小さなアプリで、3つの役割を学べます。</p></div>
+      </aside>
+    </main>
+    <footer><span>学習用サンプル</span><span id="storage-note">接続先を確認しています。</span></footer>
+  </div>
+  <dialog id="edit-dialog" aria-labelledby="edit-heading">
+    <form id="edit-form">
+      <h2 id="edit-heading">タスク名を編集</h2>
+      <label for="edit-title">タスク名（1〜80文字）</label>
+      <input id="edit-title" required maxlength="80" autocomplete="off">
+      <p id="edit-error" class="message" role="alert"></p>
+      <div class="dialog-actions"><button id="cancel-edit" type="button" class="secondary">キャンセル</button><button class="primary" type="submit">保存</button></div>
+    </form>
+  </dialog>
+</body>
+</html>

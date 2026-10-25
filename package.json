@@ -1,0 +1,15 @@
+{
+  "name": "web-development-for-non-tech",
+  "version": "1.0.0",
+  "private": true,
+  "description": "非技術者向け・全5回のWebアプリ開発教材とマイタスクアプリ",
+  "type": "module",
+  "engines": { "node": ">=24 <25" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env app/server.js",
+    "dev": "node --watch --env-file-if-exists=.env app/server.js",
+    "test": "node --test tests/*.test.js",
+    "check": "node scripts/check.js",
+    "test:supabase": "node --env-file-if-exists=.env scripts/check-supabase.js"
+  }
+}

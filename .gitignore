@@ -1,0 +1,30 @@
+# 依存パッケージ・動作確認の生成物
+node_modules/
+coverage/
+test-results/
+playwright-report/
+
+# 個別の設定・認証情報。配布用の設定例だけを含める
+.env
+.env.*
+!/.env.example
+
+# 練習で入力したデータや一時ファイル。空の保存先だけを配布する
+/app/data/*
+!/app/data/.gitkeep
+
+# スライド生成・検証の作業ファイル（教材用の画像・原稿は含める）
+/.local/
+/slides/rendered/
+/slides/*.pdf
+
+# ログ・OS・エディターの一時ファイル
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
