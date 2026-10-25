@@ -101,17 +101,37 @@ for (const data of deck) {
       });
       break;
     case 'annotated':
-      // 既存rowsの見出し・説明・区切りを保ち、画像の右側へ配置する。
+      // 実画面と、編集可能なブラウザ枠・番号・説明を組み合わせる。
       data.items.forEach(([head, body], i) => {
         const y = 122 + i * 74;
         text(head, 370, y, 310, 31, 19, colors.green, true);
         text(body, 370, y + 33, 310, 46, 14);
         if (i < 2) index++; // 旧区切り線のIDを予約。画像注釈には線を使わない。
       });
-      picture(data.image, 'image1', 44, 117, 300, 770, 682);
-      badge(1, 153, 132);
-      badge(2, 339, 218);
-      badge(3, 20, 320);
+      picture(data.image, 'image1', 59, 153, 270, 770, 682);
+      badge(1, 160, 166);
+      badge(2, 338, 252);
+      badge(3, 20, 337);
+      // 枠は実際のブラウザUIの撮影ではなく、説明用の模式図。
+      // 後から作成して背面へ送り、既存の画像・番号のIDと重なり順を保つ。
+      {
+        const frameIds = [];
+        frameIds.push(shape(46, 116, 304, 280, '#D9DDD9'));
+        frameIds.push(shape(42, 112, 306, 282, '#83919B'));
+        frameIds.push(shape(43, 113, 304, 280, colors.paper));
+        frameIds.push(shape(43, 113, 304, 39, '#DDE4E9'));
+        frameIds.push(shape(81, 117, 126, 17, colors.white));
+        frameIds.push(text('マイタスク', 88, 114, 96, 20, 9.5, colors.ink));
+        ['#D87970', '#D9BA64', '#76AB84'].forEach((color, i) => {
+          frameIds.push(shape(51 + i * 9, 121, 4, 4, color, 'ELLIPSE'));
+        });
+        frameIds.push(shape(95, 135, 242, 14, colors.white));
+        frameIds.push(text('←  →  ↻', 45, 131, 50, 22, 10, '#53636E'));
+        frameIds.push(text(data.browserUrl, 101, 131, 222, 21, 9, '#53636E'));
+        frameIds.push(text('×', 184, 114, 20, 20, 10, '#53636E'));
+        frameIds.push(text('+', 210, 114, 20, 20, 11, '#53636E'));
+        push({ updatePageElementsZOrder: { pageElementObjectIds: frameIds, operation: 'SEND_TO_BACK' } });
+      }
       break;
     case 'beforeafter':
       text(data.leftTitle, 40, 115, 300, 31, 18, colors.green, true);

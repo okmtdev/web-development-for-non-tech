@@ -196,10 +196,11 @@
         "行を作り、操作・通信・更新\napp.js の renderTasks()"
       ]
     ],
-    "bottom": "このサンプルの実画面（架空のタスク）",
-    "notes": "docs/browser-and-frameworks.mdの2。画面の1はh1、2は追加ボタン、3はタスクのチェック欄。1つのボタンにもHTML・CSS・JSが協力する。見える文字がすべてHTMLに書かれているわけではなく、タスク行や件数はJSが追加・更新する。写真は本リポジトリをローカルで動かして撮影。React／Next.js未使用。",
+    "bottom": "Web画面は実写、ブラウザ枠は説明用",
+    "notes": "docs/browser-and-frameworks.mdの2。画面の1はh1、2は追加ボタン、3はタスクのチェック欄。1つのボタンにもHTML・CSS・JSが協力する。見える文字がすべてHTMLに書かれているわけではなく、タスク行や件数はJSが追加・更新する。写真は本リポジトリをローカルで動かして撮影。React／Next.js未使用。 画面の範囲が分かるよう、タブとアドレスバー（localhost:3000）を持つブラウザ枠を図形で追加。Web画面自体は実写、ブラウザ枠は説明用の模式図。",
     "id": "course_06",
-    "image": "../docs/images/app-before.jpg"
+    "image": "../docs/images/app-before.jpg",
+    "browserUrl": "localhost:3000"
   },
   {
     "section": 1,

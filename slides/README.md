@@ -21,7 +21,7 @@ Google Slides APIでの直接作成は利用者の指定により採用。本文
 - [deck.json](deck.json)：53枚の内容、図・表の構成、講師用補足を含む原稿。
 - [speaker-notes.md](speaker-notes.md)：授業中に参照する説明と問い。
 - [deployed-architecture.png](deployed-architecture.png)：45枚目の構成図。オフラインでも参照できる画像。
-- [browser-files.png](browser-files.png)：10枚目の実画面と3ファイルの対応図。
+- [browser-files.png](browser-files.png)：10枚目の実画面と3ファイルの対応図。タブ・アドレスバー付きのブラウザ枠で画面の範囲を示しています。
 - [撮影画像](../docs/images/app-before.jpg)：このリポジトリのローカル実行画面。操作前後は `docs/images/task-before.jpg` と `task-after.jpg`。
 - [build-requests.mjs](build-requests.mjs)：原稿からGoogle Slides APIのリクエストを生成する補助コード。APIへの送信は行いません。
 
